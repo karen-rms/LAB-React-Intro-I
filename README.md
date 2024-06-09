@@ -30,14 +30,14 @@ We are going to create a small React Page to manage students in an academy. This
 
 ## Setting up a new React project
 
-1. Run the following code to create a react app with vite. Remember, if you write a dot instead of the name, vite use the actual repository as the container for the files.
+1. Run the following command to create a React app with Vite. Remember, if you use a dot (.) instead of a name, Vite will use the current directory as the container for the files.
 ```
 npm create vite@latest my-react-app -- --template react
 ```
-2. Clean the code from app.jsx and style.css
+2. Clean the code in App.jsx and style.css.
 ## Iteration 1 - Render Username from Data
 
-Initialize our react app with the following code.
+Initialize our React app with the following command.
 ```
 npm run dev
 ```
