@@ -1,4 +1,3 @@
-import React from "react";
 import "./App.css";
 
 // Greeting function
@@ -12,10 +11,14 @@ const colleaguesList = (elem) => {
   const list = elem.map((item, index) => {
     return <li key={index}> {item} </li>;
   });
-  return <span> <ul> {list} </ul> </span>;
+  return (
+    <span>
+      <ul> {list} </ul>
+    </span>
+  );
 };
 
-// Length of students list - revisar 
+// Length of students list - revisar
 const colleaguesCount = (elem) => {
   let count = elem.length;
   return (
@@ -31,12 +34,12 @@ const colleaguesCount = (elem) => {
 
 // Tabla de estudiantes con sus notas
 const grades = [
-  {name: 'Toni', grade: '5'},
-  {name: 'Didi', grade: '9'},
-  {name: 'Angelo', grade: '3'},
-  {name: 'Tati', grade: '6.5'},
-  {name: 'Marta', grade: '10'},
-]
+  { name: "Toni", grade: "5" },
+  { name: "Didi", grade: "9" },
+  { name: "Angelo", grade: "3" },
+  { name: "Tati", grade: "6.5" },
+  { name: "Marta", grade: "10" },
+];
 
 const gradeTable = (arr) => {
   const studentList = arr.map((student, index) => {
@@ -45,9 +48,11 @@ const gradeTable = (arr) => {
         <th>{student.name}</th>
         <th>{student.grade}/10</th>
       </tr>
+      // Identificar cada fila de la tabla con el key=id
     );
   });
   return (
+    // Devuelve la tabla ya creada
     <table>
       <caption>Students grade</caption>
       <tr>
@@ -61,47 +66,26 @@ const gradeTable = (arr) => {
 
 // Cambio de estilo con las notas
 const passingTable = (arr) => {
-  const studentList = arr.map((student, index) => {
+  const studentList = arr.map((data, index) => {
+    const gradeStyle = {
+      color: data.grade < 5 ? "red" : "black",
+    };
     return (
       <tr key={index}>
-        <th>{student.name}</th>
-        <th>{student.grade}/10</th>
+        <th>{data.name}</th>
+        <td style={gradeStyle}>{data.grade}</td>
       </tr>
     );
   });
   return (
-    <div>
-      <h2>Students Ordered</h2>
-      
-      <h3>Passing Students</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Student</th>
-            <th>Grade</th>
-          </tr>
-        </thead>
-        <tbody>
-          {renderStudentList(passingStudents)}
-        </tbody>
-      </table>
-
-      <h3>Failing Students</h3>
-      <table>
-        <thead>
-          <tr>
-            <th>Student</th>
-            <th>Grade</th>
-          </tr>
-        </thead>
-        <tbody>
-          {renderStudentList(failingStudents)}
-        </tbody>
-      </table>
-    </div>
+    <table>
+      <caption>Students</caption>
+      <th>Name</th>
+      <th>Grade</th>
+      {studentList}
+    </table>
   );
-}
-
+};
 
 // Función final para inicializar todos los elementos
 function App() {
@@ -110,7 +94,7 @@ function App() {
       <div>
         {greetUser("Karencias")}
         <section>
-          <div className='group'>
+          <div className="group">
             <span>{colleaguesCount(colleagues)}</span>
             <span>{colleaguesList(colleagues)}</span>
           </div>
