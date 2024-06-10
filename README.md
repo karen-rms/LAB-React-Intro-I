@@ -10,7 +10,7 @@
 
 After this learning unit, you will be able to:
 
-- Create a ReactJS app wit vite.
+- Create a ReactJS app with vite.
 - Use basic JSX directives.
 - Bind data and attributes inside JSX elements
 
